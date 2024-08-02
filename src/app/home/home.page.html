@@ -1,20 +1,17 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+      <ion-searchbar class="search-bar" placeholder="Search your meal" (input)="search($event)"></ion-searchbar>
+      <div >
+
+        <ion-select #categorySelect label="Seleccionar categoría" label-placement="floating" fill="solid"  (ionChange)="categoryChange()">
+          <ion-select-option  *ngFor="let category of categoryList?.categories" [value]="category.strCategory" onchange="categoryChange()">{{category.strCategory}}</ion-select-option>
+        </ion-select>
+      </div>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <app-card-list [itemsList]="filteredItems"></app-card-list>
   </div>
 </ion-content>
