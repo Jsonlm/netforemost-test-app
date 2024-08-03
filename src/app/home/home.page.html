@@ -1,12 +1,10 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
       <ion-searchbar class="search-bar" placeholder="Search your meal" (input)="search($event)"></ion-searchbar>
-      <div >
-
-        <ion-select #categorySelect label="Seleccionar categoría" label-placement="floating" fill="solid"  (ionChange)="categoryChange()">
-          <ion-select-option  *ngFor="let category of categoryList?.categories" [value]="category.strCategory" onchange="categoryChange()">{{category.strCategory}}</ion-select-option>
-        </ion-select>
-      </div>
+      <ion-select #categorySelect label="Category" label-placement="floating" fill="solid"  (ionChange)="categoryChange()">
+        <ion-select-option onchange="categoryChange()">None</ion-select-option>
+        <ion-select-option  *ngFor="let category of categoryList?.categories" [value]="category.strCategory">{{category.strCategory}}</ion-select-option>
+      </ion-select>
   </ion-toolbar>
 </ion-header>
 

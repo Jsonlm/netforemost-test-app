@@ -8,5 +8,22 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <h1>{{'finalData.strMeal'}}</h1>
+  <ion-card>
+    <img alt="Silhouette of mountains" [src]="finalData?.[0]?.strMealThumb" />
+    <ion-card-header>
+      <ion-card-title>{{finalData?.[0]?.strMeal}}</ion-card-title>
+      <ion-card-subtitle><strong>Category: </strong>{{finalData?.[0]?.strCategory}}</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <strong *ngIf="tags === []">Tags: </strong>
+      <ion-badge class="badge-tags" *ngFor="let item of tags" slot="start">{{item}}</ion-badge>
+      <ion-list>
+        <h3>Instructions</h3>
+        <ion-item>
+          {{finalData?.[0]?.strInstructions}}
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

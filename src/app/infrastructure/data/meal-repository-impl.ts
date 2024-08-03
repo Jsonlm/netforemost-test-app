@@ -13,6 +13,8 @@ export class MealRepositoryImpl implements MealRepository {
   constructor(private http: HttpClient) { }
 
   async getAllMealsById(id: string ): Promise<Meal> {
+    console.log(`${environment.api}lookup.php?i=${id}`);
+    
     return firstValueFrom(this.http.get<Meal>(`${environment.api}lookup.php?i=${id}`))
       .then(response => {
         if (response) {
