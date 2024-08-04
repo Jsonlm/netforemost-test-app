@@ -23,7 +23,7 @@ export class MealService {
   }
 
   async fetchMealsById(id: string): Promise<Meal> {
-    const meal = await this.mealRepository.getAllMealsById(id);
+    const meal = await this.mealRepository.getMealById(id);
     return meal;
   }
 }

@@ -6,6 +6,7 @@ import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
 import { CardListPage } from '../shared/card-list/card-list.page';
+import { CategoryService } from '../core/services/category.service';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { CardListPage } from '../shared/card-list/card-list.page';
     IonicModule,
     HomePageRoutingModule,
   ],
-  declarations: [HomePage, CardListPage]
+  declarations: [HomePage, CardListPage],
+  providers: [CategoryService]
 })
 export class HomePageModule {}

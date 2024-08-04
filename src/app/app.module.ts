@@ -22,7 +22,7 @@ import { CategoryRepositoryImpl } from './infrastructure/data/category-repositor
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, 
     { provide: MEAL_REPOSITORY_TOKEN, useClass: MealRepositoryImpl },
     { provide: CATEGORY_REPOSITORY_TOKEN, useClass: CategoryRepositoryImpl },
-    MealService, CategoryService
+    MealService
   ],
   bootstrap: [AppComponent],
 })
