@@ -16,7 +16,7 @@ export class CardListPage implements OnInit {
   ngOnInit() {
   }
 
-  goToDetails(id: string) {
+  goToDetails(id: string | undefined) {
     this.router.navigateByUrl(`/details/${id}`);
   }
 

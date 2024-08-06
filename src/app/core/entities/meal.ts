@@ -1,6 +1,6 @@
 export class Meal {
     constructor(
-        public idMeal?: string,
+        public idMeal?: string | undefined,
         public strMeal?: string,
         public strMealThumb?: string,
         public strCategory?: string,
