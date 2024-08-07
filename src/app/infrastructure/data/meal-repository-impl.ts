@@ -9,13 +9,14 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class MealRepositoryImpl implements MealRepository {
+  public url = String(environment.api);
 
   constructor(private http: HttpClient) { }
 
   async getMealById(id: string ): Promise<Meal> {
     console.log(`${environment.api}lookup.php?i=${id}`);
     
-    return firstValueFrom(this.http.get<Meal>(`${environment.api}lookup.php?i=${id}`))
+    return firstValueFrom(this.http.get<Meal>(`${this.url}lookup.php?i=${id}`))
       .then(response => {
         if (response) {
           return response;
@@ -29,7 +30,7 @@ export class MealRepositoryImpl implements MealRepository {
   }
 
   async getAllMealsByName(mealName: string): Promise<Meal[] | null> {
-    return firstValueFrom(this.http.get<Meal[]>(`${environment.api}search.php?s=${mealName}`))
+    return firstValueFrom(this.http.get<Meal[]>(`${this.url}search.php?s=${mealName}`))
       .then(response => {
         if (response) {
           return response;
@@ -44,7 +45,7 @@ export class MealRepositoryImpl implements MealRepository {
   }
 
   getAllMealsByCategory(mealName: string): Promise<Meal[] | null> {
-    return firstValueFrom(this.http.get<Meal[]>(`${environment.api}search.php?s=${mealName}`))
+    return firstValueFrom(this.http.get<Meal[]>(`${this.url}search.php?s=${mealName}`))
       .then(response => {
         if (response) {
           return response;

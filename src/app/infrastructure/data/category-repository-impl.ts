@@ -9,11 +9,12 @@ import { Category } from 'src/app/core/entities/category';
   providedIn: 'root',
 })
 export class CategoryRepositoryImpl implements CategoryRepository {
+  public url = String(environment.api);
     
     constructor(private http: HttpClient) {}
 
     getAllCategories(): Promise<Category[]> {
-        return firstValueFrom(this.http.get<Category[]>(`${environment.api}categories.php`))
+        return firstValueFrom(this.http.get<Category[]>(`${this.url}categories.php`))
         .then(response => {
           if (response) {
             return response; 
